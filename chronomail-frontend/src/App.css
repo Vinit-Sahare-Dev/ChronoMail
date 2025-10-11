@@ -2,6 +2,52 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content wrapper */
+.main-content-wrapper {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 56px); /* Subtract navbar height */
+  overflow: hidden;
+}
+
+/* Left sidebar - Email List */
+.email-list-sidebar {
+  width: 350px;
+  min-width: 350px;
+  background: rgba(255, 255, 255, 0.95);
+  border-right: 1px solid #e9ecef;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content area - Email Scheduler */
+.email-scheduler-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.email-scheduler-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* Footer in main content area */
+.main-footer {
+  margin-top: auto;
+  padding: 20px 0;
+  text-align: center;
 }
 
 /* Custom card styles */
@@ -11,11 +57,32 @@
   overflow: hidden;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
   border-bottom: none;
   font-weight: 600;
+}
+
+/* Email list sidebar specific styles */
+.email-list-sidebar .card {
+  border-radius: 0;
+  height: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+.email-list-sidebar .card-body {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.email-list-sidebar .table-responsive {
+  flex: 1;
+  max-height: none;
 }
 
 /* Form styling */
@@ -49,7 +116,7 @@
 
 .btn:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Table styling */
@@ -72,89 +139,6 @@
 }
 
 /* Status indicator */
-.status-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.status-indicator.healthy {
-  background-color: #28a745;
-  box-shadow: 0 0 10px #28a745;
-}
-
-.status-indicator.unhealthy {
-  background-color: #ffc107;
-  box-shadow: 0 0 10px #ffc107;
-}
-
-/* Custom animations */
-@keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-.card {
-  animation: fadeIn 0.5s ease-out;
-}
-
-/* React DatePicker customization */
-.react-datepicker-wrapper {
-  width: 100%;
-}
-
-.react-datepicker__input-container input {
-  width: 100%;
-  border-radius: 10px;
-  border: 2px solid #e9ecef;
-  padding: 12px 15px;
-  transition: all 0.3s ease;
-}
-
-.react-datepicker__input-container input:focus {
-  border-color: #0d6efd;
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
-  outline: none;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .container-fluid {
-    padding: 0 15px;
-  }
-  
-  .card-body {
-    padding: 1rem !important;
-  }
-  
-  .table-responsive {
-    font-size: 0.875rem;
-  }
-  
-  .btn {
-    padding: 0.5rem 1rem;
-  }
-}
-
-/* Navbar customization */
-.navbar-brand {
-  font-size: 1.5rem;
-}
-
-/* Loading spinner customization */
-.spinner-border {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-/* Status indicator animations */
 .status-indicator {
   width: 10px;
   height: 10px;
@@ -197,6 +181,85 @@
   0% { opacity: 1; }
   50% { opacity: 0.3; }
   100% { opacity: 1; }
+}
+
+/* React DatePicker customization */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+  outline: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .email-list-sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .email-scheduler-main {
+    padding: 15px;
+    height: 60vh;
+  }
+  
+  .card-body {
+    padding: 1rem !important;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Navbar customization */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Loading spinner customization */
+.spinner-border {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
 }
 
 /* Offline state styling */

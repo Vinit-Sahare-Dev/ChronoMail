@@ -186,3 +186,65 @@
   background-color: #f8f9fa;
   opacity: 0.6;
 }
+
+/* Add these styles to your existing App.css */
+
+/* Layout adjustments for new alignment */
+.container-fluid {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Ensure proper height for email list */
+.card {
+  height: fit-content;
+  max-height: 80vh;
+}
+
+/* Make email list scrollable */
+.table-responsive {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Center the email scheduler */
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .order-1 {
+    order: 2;
+  }
+  
+  .order-2 {
+    order: 1;
+  }
+  
+  .table-responsive {
+    max-height: 40vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 15px;
+  }
+  
+  .card-body {
+    padding: 1rem !important;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+    max-height: 35vh;
+  }
+}
+
+/* Ensure proper spacing */
+.g-4 {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+}
