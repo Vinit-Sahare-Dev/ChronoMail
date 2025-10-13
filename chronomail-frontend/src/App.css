@@ -235,18 +235,17 @@
   }
 }
 
-/* Navbar customization */
 .navbar-brand {
   font-size: 1.5rem;
 }
 
-/* Loading spinner customization */
+
 .spinner-border {
   width: 1.5rem;
   height: 1.5rem;
 }
 
-/* Custom animations */
+
 @keyframes fadeIn {
   from { 
     opacity: 0; 
@@ -262,7 +261,6 @@
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Offline state styling */
 .form-control:disabled {
   background-color: #f8f9fa;
   opacity: 0.6;
