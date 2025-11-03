@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// Create axios instance with base configuration
+// Update the baseURL to match your Spring Boot port
 const api = axios.create({
-  baseURL: 'http://localhost:8099/api',
+  baseURL: 'http://localhost:8080/api', // Change 8099 to your actual port
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
